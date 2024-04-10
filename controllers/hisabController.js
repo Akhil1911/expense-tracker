@@ -33,11 +33,14 @@ export const getAllHisabController = async (req, res) => {
     const sd1 = new Date(selectedDate[0]);
     const sd2 = new Date(selectedDate[1]);
 
-    let date1 = new Date(sd1?.getTime() + 86400000);
+    let date1 = new Date(sd1);
     let date2 = new Date(sd2?.getTime() + 86400000);
 
-    date1?.toLocaleDateString();
+    // date1?.toLocaleDateString();
     date2?.toLocaleDateString();
+
+    console.log(date1);
+    console.log(date2);
 
     const _id = JWT.verify(token, process.env.JSONWEBTOKENKEY);
     const userWiseHisab = await hisabModel.find({
